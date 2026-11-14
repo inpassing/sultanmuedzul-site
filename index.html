@@ -22,6 +22,9 @@
   :root{--green:#0b2a1d;--cream:#f4efe4;--cream-2:#ebe4d4;--gold-lt:#e4c46a;--rule:rgba(11,42,29,.18)}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--green);color:var(--cream);-webkit-font-smoothing:antialiased}
+  /* footer always sits at the bottom, even on a tall screen */
+  body{min-height:100vh;display:flex;flex-direction:column}
+  main{flex:1 0 auto}
   img{display:block;max-width:100%}
   .caps{font-family:Jost,Helvetica,Arial,sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.3em;font-size:12px}
   .hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 120px}
@@ -61,6 +64,7 @@
     .foot-cols{grid-template-columns:1fr;gap:30px;padding:44px 0}
     .foot-col+.foot-col{border-left:0;border-top:1px solid var(--rule);padding-top:30px}
   }
+
 </style>
 </head>
 <body>
@@ -78,7 +82,7 @@
     <div class="foot-col"><img src="img/emblem-deep.png" alt="Royal emblem" width="40" height="41"><span class="caps">His Majesty the Sultan of Sulu<br>Head of the Royal House</span></div>
     <div class="foot-col"><img src="img/crescent-star-gold.svg" alt="Crescent and star" width="34" height="34"><span class="serif">Sultanate <em>of</em> Sulu</span></div>
   </div>
-  <div class="foot-base"><p class="caps"><span>&copy; 2026. All rights reserved.</span><a href="mailto:contact@sultanmuedzul.com">contact@sultanmuedzul.com</a></p></div>
+  <div class="foot-base"><p class="caps"><span>&copy; 2026. All rights reserved.</span><a href="sultanate.html">The Sultanate</a><a href="mailto:contact@sultanmuedzul.com">contact@sultanmuedzul.com</a></p></div>
 </footer>
 </body>
 </html>
