@@ -27,7 +27,7 @@
   main{flex:1 0 auto}
   img{display:block;max-width:100%}
   .caps{font-family:Jost,Helvetica,Arial,sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.3em;font-size:12px}
-  .hero{position:relative;min-height:90vh;min-height:90svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 120px}
+  .hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 120px}
   .hero::before{content:"";position:absolute;inset:0;background:rgba(7,30,20,.22);z-index:1}
   .art{position:absolute;top:0;bottom:0;right:4%;height:100%;aspect-ratio:1200/1591;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 75%,transparent),linear-gradient(#000 70%,transparent);
@@ -38,6 +38,12 @@
   h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(32px,3.5vw,50px);line-height:1.15;margin-bottom:20px;text-wrap:balance}
   .styled{letter-spacing:.34em}
   .styled em{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;text-transform:none;letter-spacing:.04em;font-size:1.25em}
+  /* quiet link under the title: a short gold rule, then small capitals */
+  .more{margin-top:46px;display:inline-flex;flex-direction:column;align-items:center;gap:18px;color:var(--gold-lt);text-decoration:none}
+  .more::before{content:"";width:44px;height:1px;background:rgba(228,196,106,.55)}
+  .more span{font-size:11px;letter-spacing:.3em;border-bottom:1px solid transparent;padding-bottom:4px;transition:border-color .25s}
+  .more:hover span,.more:focus-visible span{border-color:rgba(228,196,106,.7)}
+  .more:focus-visible{outline:2px solid var(--gold-lt);outline-offset:8px}
   /* footer: three symbols from the flag, then copyright and contact */
   .site-footer{background:var(--cream-2);color:var(--green);padding:0 18px 26px}
   .foot-cols{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;padding:56px 0}
@@ -46,6 +52,10 @@
   .foot-col .caps{font-size:10px;line-height:1.7;letter-spacing:.26em}
   .foot-col .serif{font-family:"Cormorant Garamond",Georgia,serif;text-transform:uppercase;letter-spacing:.08em;font-size:19px;line-height:1.2}
   .foot-col .serif em{text-transform:none;font-size:.85em}
+  a.foot-col{color:inherit;text-decoration:none}
+  a.foot-col span{border-bottom:1px solid transparent;padding-bottom:3px;transition:border-color .25s}
+  a.foot-col:hover span,a.foot-col:focus-visible span{border-color:rgba(11,42,29,.4)}
+  a.foot-col:focus-visible{outline:2px solid #a8841f;outline-offset:6px}
   .foot-base{display:flex;align-items:center;gap:26px;border-top:1px solid var(--rule);padding-top:22px}
   .foot-base::before,.foot-base::after{content:"";flex:1}
   .foot-base .caps{font-size:10px;letter-spacing:.24em;display:flex;gap:22px;flex-wrap:wrap;justify-content:center;text-align:center}
@@ -65,46 +75,23 @@
     .foot-col+.foot-col{border-left:0;border-top:1px solid var(--rule);padding-top:30px}
   }
 
-  .sultanate{position:relative;text-align:center;padding:130px 24px 140px;
-    background-color:#0a3524;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='.16' stroke-width='1'%3E%3Cpath d='M40 10 L48.3 28.3 L66.6 20 L58.3 38.3 L76.6 46.6 L58.3 54.9 L66.6 73.2 L48.3 64.9 L40 83.2'/%3E%3Cpath d='M40 10 L31.7 28.3 L13.4 20 L21.7 38.3 L3.4 46.6 L21.7 54.9 L13.4 73.2 L31.7 64.9 L40 83.2'/%3E%3Crect x='25' y='31.6' width='30' height='30' transform='rotate(45 40 46.6)'/%3E%3Crect x='25' y='31.6' width='30' height='30'/%3E%3C/g%3E%3C/svg%3E");background-position:center top}
-  .sultanate::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(var(--green),rgba(11,42,29,0) 180px),
-               radial-gradient(ellipse 60% 62% at 50% 52%,rgba(22,96,63,.92),rgba(6,38,26,.35) 70%,rgba(6,38,26,.15))}
-  .sultanate>*{position:relative;z-index:1}
-  .sultanate h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:.06em;
-    color:var(--gold-lt);font-size:clamp(32px,4vw,52px);line-height:1.15;margin-bottom:26px}
-  .kris{width:min(220px,60%);margin:0 auto 34px;opacity:.9}
-  .sultanate p{max-width:720px;margin:0 auto;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(20px,1.9vw,24px);line-height:1.6;color:var(--cream)}
-  @media (max-width:820px){
-    .hero{padding-bottom:28px}
-    .sultanate{padding:56px 16px 72px}
-    .sultanate::after{background:linear-gradient(var(--green),rgba(11,42,29,0) 90px),
-      radial-gradient(ellipse 80% 60% at 50% 50%,rgba(22,96,63,.92),rgba(6,38,26,.35) 70%,rgba(6,38,26,.15))}
-  }
-
 </style>
 </head>
 <body>
-<main>
-<section class="hero">
+<main class="hero">
   <div class="art"><img src="img/portrait/oil-portrait.jpg" alt="Painted portrait of His Majesty Muedzul Lail Tan Kiram" width="1200" height="1591" fetchpriority="high"></div>
   <div class="copy">
     <img class="crest" src="img/emblem-light.png" alt="Royal emblem of the Sultanate of Sulu" width="74" height="75">
     <h1>His Majesty<br>Muedzul Lail Tan Kiram</h1>
     <p class="caps styled">35th Sultan <em>of</em> Sulu</p>
+    <a class="caps more" href="sultanate.html"><span>The Sultanate of Sulu</span></a>
   </div>
-</section>
-<section class="sultanate" id="sultanate" aria-labelledby="sultanate-title">
-  <h2 id="sultanate-title">The Sultanate of Sulu</h2>
-  <img class="kris" src="img/kris-spear-light.png" alt="" width="220" height="40">
-  <p>The Sultanate of Sulu is a historic royal institution established in the 15th century in what is now the southern Philippines, with centuries of political, diplomatic, and cultural influence across the Sulu Archipelago and surrounding region. Its rulers maintained diplomatic relations with foreign powers and governed a maritime realm whose history remains an important part of Southeast Asia's heritage. Today, His Majesty Sultan Muedzul Lail Tan Kiram, a descendant of Sulu's historic ruling dynasty, carries forward the traditions and cultural legacy of the Sultanate, preserving an institution whose significance extends well beyond its former political authority.</p>
-</section>
 </main>
 <footer class="site-footer">
   <div class="foot-cols">
     <div class="foot-col"><img src="img/kris-spear-deep.png" alt="Kris and spear" width="120" height="22"><span class="caps">The Royal House</span></div>
-    <div class="foot-col"><img src="img/emblem-deep.png" alt="Royal emblem" width="40" height="41"><span class="caps">His Majesty the Sultan of Sulu<br>Head of the Royal House</span></div>
-    <div class="foot-col"><img src="img/crescent-star-gold.svg" alt="Crescent and star" width="34" height="34"><span class="serif">Sultanate <em>of</em> Sulu</span></div>
+    <a class="foot-col" href="index.html"><img src="img/emblem-deep.png" alt="" width="40" height="41"><span class="caps">His Majesty the Sultan of Sulu<br>Head of the Royal House</span></a>
+    <a class="foot-col" href="sultanate.html"><img src="img/crescent-star-gold.svg" alt="" width="34" height="34"><span class="serif">Sultanate <em>of</em> Sulu</span></a>
   </div>
   <div class="foot-base"><p class="caps"><span>&copy; 2026. All rights reserved.</span><a href="mailto:contact@sultanmuedzul.com">contact@sultanmuedzul.com</a></p></div>
 </footer>
